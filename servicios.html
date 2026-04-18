@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios | Antúnez &amp; Riquelme · Endodoncia Especializada Santiago</title>
+  <meta name="description" content="Tratamiento de conducto, retratamiento endodóntico, microcirugía apical y diagnóstico microscópico. Especialistas en endodoncia en Las Condes y Providencia." />
+  <meta property="og:title" content="Servicios | Antúnez &amp; Riquelme Endodoncia" />
+  <meta property="og:description" content="Conoce todos nuestros tratamientos endodónticos. Sin dolor, con tecnología de punta en Santiago de Chile." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://antunezriquelme.cl/servicios.html" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .services-hero {
+      background: var(--c-carbon);
+      padding: 10rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .services-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 15% 60%, rgba(196,145,122,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 70% at 85% 40%, rgba(212,184,150,0.07) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .services-hero__title { color: var(--c-white); margin-bottom: 1rem; }
+    .services-hero__subtitle {
+      color: rgba(255,255,255,0.6);
+      max-width: 560px;
+      margin-inline: auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+    .service-full-card {
+      background: var(--c-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 2.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: all var(--dur) var(--ease);
+      cursor: pointer;
+    }
+    .service-full-card:hover {
+      border-color: rgba(196,145,122,0.4);
+      box-shadow: 0 12px 48px rgba(196,145,122,0.1);
+      transform: translateY(-3px);
+    }
+    .service-full-card__header { display: flex; align-items: flex-start; gap: 1.25rem; }
+    .service-full-card__icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-section);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .service-full-card__icon-wrap svg { width: 32px; height: 32px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .service-full-card__number { font-family: var(--font-serif); font-size: 0.75rem; font-style: italic; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .service-full-card__name { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 500; line-height: 1.25; }
+    .service-full-card__desc { font-size: 0.9375rem; color: var(--c-carbon-mid); line-height: 1.8; }
+    .service-full-card__details {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+      padding-top: 1rem; border-top: 1px solid var(--border-light);
+    }
+    .service-detail-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .service-detail-item__label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .service-detail-item__value { font-size: 0.875rem; color: var(--text-primary); }
+    .service-full-card__footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; flex-wrap: wrap; gap: 0.75rem; }
+    .service-full-card__clinic-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--bg-section); border: 1px solid var(--border); border-radius: var(--radius-full);
+      font-size: 0.75rem; color: var(--accent); font-weight: 500;
+    }
+    .service-full-card__clinic-badge svg { width: 12px; height: 12px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .service-full-card__expand {
+      font-size: 0.8125rem; font-weight: 500; color: var(--accent);
+      display: flex; align-items: center; gap: 0.35rem;
+      background: none; border: none; cursor: pointer; font-family: var(--font-sans); padding: 0;
+      transition: gap var(--dur) var(--ease);
+    }
+    .service-full-card__expand:hover { gap: 0.55rem; }
+    .service-full-card__expand svg { width: 16px; height: 16px; stroke: var(--accent); fill: none; stroke-width: 1.5; transition: transform var(--dur) var(--ease); }
+    .service-full-card__expand:hover svg { transform: translateX(3px); }
+    .services-main__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+    /* Proceso */
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; position: relative; }
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 2rem; left: calc(12.5% + 1rem); right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(to right, var(--c-blush), var(--accent), var(--c-blush));
+      z-index: 0;
+    }
+    .process-step { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; position: relative; z-index: 1; }
+    .process-step__number {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--c-white); border: 1.5px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-serif); font-size: 1.4rem; font-style: italic; color: var(--accent);
+      box-shadow: 0 4px 16px rgba(196,145,122,0.1);
+    }
+    .process-step__title { font-family: var(--font-serif); font-size: 1rem; font-weight: 500; }
+    .process-step__desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* Tecnología */
+    .tech-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .tech-item { padding: 2rem; background: var(--c-white); border: 1px solid var(--border-light); border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: 0.75rem; transition: all var(--dur) var(--ease); }
+    .tech-item:hover { border-color: rgba(196,145,122,0.3); box-shadow: 0 4px 20px rgba(196,145,122,0.07); }
+    .tech-item__icon { width: 40px; height: 40px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .tech-item__name { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 500; }
+    .tech-item__desc { font-size: 0.875rem; color: var(--c-carbon-mid); line-height: 1.7; }
+
+    /* Modal */
+    .modal__icon-wrap { width: 72px; height: 72px; border-radius: var(--radius-lg); background: var(--bg-section); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+    .modal__icon-wrap svg { width: 36px; height: 36px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+    .modal__title { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .modal__subtitle { font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .modal__body { font-size: 0.9375rem; color: var(--c-carbon-mid); line-height: 1.8; }
+    .modal__body p { margin-bottom: 1rem; }
+    .modal__body h4 { font-family: var(--font-serif); font-size: 1rem; margin: 1.5rem 0 0.5rem; color: var(--text-primary); }
+    .modal__body ul { list-style: none; display: flex; flex-direction: column; gap: 0.4rem; }
+    .modal__body ul li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9375rem; color: var(--c-carbon-mid); }
+    .modal__body ul li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 0.55em; }
+    .modal__cta { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    @media (max-width: 1024px) {
+      .services-main__grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid::before { display: none; }
+      .tech-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .service-full-card__details { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar navbar--transparent" id="navbar" role="banner">
+  <div class="container">
+    <nav class="navbar__inner" aria-label="Navegación principal">
+      <a href="index.html" class="navbar__logo">Antúnez &amp; Riquelme<span>Endodoncia Especializada</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html" class="navbar__link">Inicio</a></li>
+        <li><a href="servicios.html" class="navbar__link navbar__link--active">Servicios</a></li>
+        <li><a href="clinicas.html" class="navbar__link">Clínicas</a></li>
+        <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        <li><a href="investigacion.html" class="navbar__link">Investigación</a></li>
+        <li><a href="contacto.html" class="navbar__link">Contacto</a></li>
+      </ul>
+      <a href="contacto.html" class="btn btn--outline navbar__cta btn--sm">Agendar consulta</a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="navbar__overlay" id="navOverlay"></div>
+<nav class="navbar__drawer" id="navDrawer" aria-label="Menú móvil">
+  <a href="index.html" class="navbar__link">Inicio</a>
+  <a href="servicios.html" class="navbar__link navbar__link--active">Servicios</a>
+  <a href="clinicas.html" class="navbar__link">Clínicas</a>
+  <a href="blog.html" class="navbar__link">Blog</a>
+  <a href="investigacion.html" class="navbar__link">Investigación</a>
+  <a href="contacto.html" class="navbar__link">Contacto</a>
+  <a href="contacto.html" class="btn btn--outline navbar__cta">Agendar consulta</a>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="services-hero" aria-labelledby="services-hero-title">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section__eyebrow" style="color:var(--c-champagne);">Nuestros tratamientos</span>
+    <h1 class="services-hero__title" id="services-hero-title">¿En qué te podemos ayudar?</h1>
+    <p class="services-hero__subtitle">Somos especialistas exclusivas en endodoncia. Cada tratamiento está diseñado para salvar tu diente natural, sin dolor y con la tecnología más avanzada disponible en Chile.</p>
+  </div>
+</section>
+
+<!-- SERVICIOS PRINCIPALES -->
+<section class="section" aria-labelledby="services-main-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Tratamientos</span>
+      <h2 class="section__title" id="services-main-title">Cuatro especialidades, una sola misión</h2>
+      <p class="section__subtitle">Haz clic en cualquier tratamiento para conocer todos los detalles del procedimiento.</p>
+    </div>
+    <div class="services-main__grid">
+
+      <!-- 1 -->
+      <article class="service-full-card reveal" data-modal="modal-1">
+        <div class="service-full-card__header">
+          <div class="service-full-card__icon-wrap">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C11 3 8 6 8 10c0 2 .5 4 1.5 5.5S11 18 11 22c0 3 1 7 5 7s5-4 5-7c0-4 1.5-5 2.5-6.5S25 12 25 10c0-4-3-7-9-7z"/><line x1="16" y1="14" x2="16" y2="26"/></svg>
+          </div>
+          <div>
+            <p class="service-full-card__number">01</p>
+            <h3 class="service-full-card__name">Tratamiento de conducto <em style="font-style:italic;font-size:0.85em;color:var(--text-muted);">(Endodoncia)</em></h3>
+          </div>
+        </div>
+        <p class="service-full-card__desc">Cuando la pulpa dental se infecta o inflama, el tratamiento de conducto es la solución. Eliminamos la infección, limpiamos los conductos y los sellamos herméticamente para que el diente quede sano y sin dolor. Muchas pacientes nos cuentan que fue mucho menos molesto de lo que esperaban.</p>
+        <div class="service-full-card__details">
+          <div class="service-detail-item"><span class="service-detail-item__label">Sesiones</span><span class="service-detail-item__value">1 a 2 citas</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Duración</span><span class="service-detail-item__value">60 – 90 minutos</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Anestesia</span><span class="service-detail-item__value">Local, sin dolor</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Recuperación</span><span class="service-detail-item__value">24 – 48 horas</span></div>
+        </div>
+        <div class="service-full-card__footer">
+          <span class="service-full-card__clinic-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>Las Condes · Providencia</span>
+          <button class="service-full-card__expand" data-target="modal-1" aria-haspopup="dialog">Ver detalle completo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="service-full-card reveal reveal--delay-1" data-modal="modal-2">
+        <div class="service-full-card__header">
+          <div class="service-full-card__icon-wrap">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 16a8 8 0 0016 0"/><path d="M24 16a8 8 0 00-16 0"/><path d="M20 12l4 4-4 4"/><path d="M12 20l-4-4 4-4"/></svg>
+          </div>
+          <div>
+            <p class="service-full-card__number">02</p>
+            <h3 class="service-full-card__name">Retratamiento <em style="font-style:italic;font-size:0.85em;color:var(--text-muted);">endodóntico</em></h3>
+          </div>
+        </div>
+        <p class="service-full-card__desc">A veces un tratamiento de conducto previo no resolvió el problema completamente o aparece una nueva infección. El retratamiento consiste en reabrir el diente, retirar el material anterior, limpiar con mayor profundidad y volver a sellarlo. Con tecnología actual, los resultados son significativamente mejores.</p>
+        <div class="service-full-card__details">
+          <div class="service-detail-item"><span class="service-detail-item__label">Sesiones</span><span class="service-detail-item__value">2 a 3 citas</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Duración</span><span class="service-detail-item__value">75 – 120 minutos</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Anestesia</span><span class="service-detail-item__value">Local, sin dolor</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Recuperación</span><span class="service-detail-item__value">48 – 72 horas</span></div>
+        </div>
+        <div class="service-full-card__footer">
+          <span class="service-full-card__clinic-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>Las Condes · Providencia</span>
+          <button class="service-full-card__expand" data-target="modal-2" aria-haspopup="dialog">Ver detalle completo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="service-full-card reveal reveal--delay-2" data-modal="modal-3">
+        <div class="service-full-card__header">
+          <div class="service-full-card__icon-wrap">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="10" stroke-dasharray="3 2.5"/><line x1="16" y1="3" x2="16" y2="6"/><line x1="16" y1="26" x2="16" y2="29"/><line x1="3" y1="16" x2="6" y2="16"/><line x1="26" y1="16" x2="29" y2="16"/></svg>
+          </div>
+          <div>
+            <p class="service-full-card__number">03</p>
+            <h3 class="service-full-card__name">Microcirugía apical <em style="font-style:italic;font-size:0.85em;color:var(--text-muted);">(Apicectomía)</em></h3>
+          </div>
+        </div>
+        <p class="service-full-card__desc">Cuando la infección persiste en la punta de la raíz y no puede resolverse internamente, realizamos una pequeña cirugía mínimamente invasiva con microscopio operatorio de alta resolución. Accedemos directamente al ápice, eliminamos el tejido infectado y sellamos la punta. Salva dientes que de otro modo deberían extraerse.</p>
+        <div class="service-full-card__details">
+          <div class="service-detail-item"><span class="service-detail-item__label">Sesiones</span><span class="service-detail-item__value">1 sesión quirúrgica</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Duración</span><span class="service-detail-item__value">60 – 90 minutos</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Anestesia</span><span class="service-detail-item__value">Local, sin dolor</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Recuperación</span><span class="service-detail-item__value">3 – 5 días</span></div>
+        </div>
+        <div class="service-full-card__footer">
+          <span class="service-full-card__clinic-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>Providencia — Dra. Paula Riquelme</span>
+          <button class="service-full-card__expand" data-target="modal-3" aria-haspopup="dialog">Ver detalle completo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="service-full-card reveal reveal--delay-3" data-modal="modal-4">
+        <div class="service-full-card__header">
+          <div class="service-full-card__icon-wrap">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="13" r="7"/><circle cx="16" cy="13" r="3"/><line x1="16" y1="20" x2="16" y2="28"/><line x1="12" y1="26" x2="20" y2="26"/><line x1="9" y1="6" x2="23" y2="6"/></svg>
+          </div>
+          <div>
+            <p class="service-full-card__number">04</p>
+            <h3 class="service-full-card__name">Diagnóstico <em style="font-style:italic;font-size:0.85em;color:var(--text-muted);">microscópico</em></h3>
+          </div>
+        </div>
+        <p class="service-full-card__desc">El microscopio operatorio nos permite ver lo que el ojo desnudo y la radiografía no pueden detectar: fracturas verticales, canales adicionales, perforaciones y lesiones pequeñas. Este diagnóstico de alta precisión es clave antes de decidir si un diente puede salvarse o necesita otro tratamiento.</p>
+        <div class="service-full-card__details">
+          <div class="service-detail-item"><span class="service-detail-item__label">Sesiones</span><span class="service-detail-item__value">1 sesión diagnóstica</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Duración</span><span class="service-detail-item__value">30 – 45 minutos</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Tecnología</span><span class="service-detail-item__value">Microscopio Zeiss</span></div>
+          <div class="service-detail-item"><span class="service-detail-item__label">Recuperación</span><span class="service-detail-item__value">Inmediata</span></div>
+        </div>
+        <div class="service-full-card__footer">
+          <span class="service-full-card__clinic-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>Las Condes · Providencia</span>
+          <button class="service-full-card__expand" data-target="modal-4" aria-haspopup="dialog">Ver detalle completo <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="section section--alt" aria-labelledby="process-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">El proceso</span>
+      <h2 class="section__title" id="process-title">¿Qué pasa en tu primera visita?</h2>
+      <p class="section__subtitle">Tu tranquilidad es lo primero. Cada consulta comienza con una conversación antes de cualquier procedimiento.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-step__number">1</div>
+        <h3 class="process-step__title">Consulta y diagnóstico</h3>
+        <p class="process-step__desc">Evaluamos tu caso con radiografía y, si es necesario, diagnóstico microscópico. Te explicamos todo con claridad.</p>
+      </div>
+      <div class="process-step reveal reveal--delay-1">
+        <div class="process-step__number">2</div>
+        <h3 class="process-step__title">Plan de tratamiento</h3>
+        <p class="process-step__desc">Te presentamos las opciones, tiempos y costos. Sin apuros. Tu decisión informada es nuestra prioridad.</p>
+      </div>
+      <div class="process-step reveal reveal--delay-2">
+        <div class="process-step__number">3</div>
+        <h3 class="process-step__title">Tratamiento sin dolor</h3>
+        <p class="process-step__desc">Aplicamos anestesia local y trabajamos con tecnología de última generación. Mucho más tranquilo de lo que imaginas.</p>
+      </div>
+      <div class="process-step reveal reveal--delay-3">
+        <div class="process-step__number">4</div>
+        <h3 class="process-step__title">Seguimiento y alta</h3>
+        <p class="process-step__desc">Control post-tratamiento incluido. Coordinamos con tu dentista para la restauración final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍA -->
+<section class="section" aria-labelledby="tech-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Tecnología</span>
+      <h2 class="section__title" id="tech-title">Equipamiento de última generación</h2>
+      <p class="section__subtitle">Invertimos en tecnología porque marca la diferencia en el resultado y en tu comodidad durante el tratamiento.</p>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-item reveal">
+        <svg class="tech-item__icon" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="17" r="9"/><circle cx="20" cy="17" r="4"/><line x1="20" y1="26" x2="20" y2="35"/><line x1="15" y1="33" x2="25" y2="33"/></svg>
+        <h3 class="tech-item__name">Microscopio operatorio Zeiss</h3>
+        <p class="tech-item__desc">Magnificación de hasta 25x para diagnóstico y tratamiento de la máxima precisión. Estándar de oro en endodoncia moderna.</p>
+      </div>
+      <div class="tech-item reveal reveal--delay-1">
+        <svg class="tech-item__icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="10" width="28" height="20" rx="3"/><line x1="6" y1="16" x2="34" y2="16"/><line x1="14" y1="10" x2="14" y2="30"/><circle cx="26" cy="23" r="4"/></svg>
+        <h3 class="tech-item__name">Tomografía CBCT 3D</h3>
+        <p class="tech-item__desc">Imagen tridimensional de alta resolución para ver la anatomía exacta de tus raíces y detectar lesiones no visibles en radiografías convencionales.</p>
+      </div>
+      <div class="tech-item reveal reveal--delay-2">
+        <svg class="tech-item__icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M10 30 Q20 8 30 30"/><line x1="10" y1="30" x2="30" y2="30"/><circle cx="20" cy="19" r="3"/></svg>
+        <h3 class="tech-item__name">Instrumentación rotatoria</h3>
+        <p class="tech-item__desc">Limas de níquel-titanio de última generación para una limpieza más completa y segura, con mínima molestia post-tratamiento.</p>
+      </div>
+      <div class="tech-item reveal reveal--delay-3">
+        <svg class="tech-item__icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="8" y="8" width="24" height="24" rx="4"/><path d="M14 20l4 4 8-8"/></svg>
+        <h3 class="tech-item__name">Localizador de ápice electrónico</h3>
+        <p class="tech-item__desc">Determina con precisión milimétrica la longitud de cada conducto, minimizando la exposición a rayos X.</p>
+      </div>
+      <div class="tech-item reveal reveal--delay-1">
+        <svg class="tech-item__icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6v28M8 14l12-8 12 8M8 26l12 8 12-8"/></svg>
+        <h3 class="tech-item__name">Irrigación ultrasónica</h3>
+        <p class="tech-item__desc">Sistema de lavado activado por ultrasonido que elimina bacterias en zonas donde los instrumentos no pueden llegar.</p>
+      </div>
+      <div class="tech-item reveal reveal--delay-2">
+        <svg class="tech-item__icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M12 28c0-8 4-14 8-14s8 6 8 14"/><line x1="20" y1="14" x2="20" y2="8"/><line x1="12" y1="28" x2="28" y2="28"/></svg>
+        <h3 class="tech-item__name">Obturación termoplástica</h3>
+        <p class="tech-item__desc">Sellado tridimensional con gutapercha caliente que asegura un cierre hermético y duradero, evitando reinfecciones futuras.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final" aria-labelledby="services-cta-title">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <span class="section__eyebrow cta-final__eyebrow">Da el primer paso</span>
+    <h2 class="cta-final__title" id="services-cta-title">¿Tienes dudas sobre tu caso?</h2>
+    <p class="cta-final__subtitle">Cuéntanos qué te pasa y evaluamos si somos la solución indicada para ti. Sin compromiso.</p>
+    <div class="cta-final__buttons">
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Marcia%20Antúnez" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer">
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        Dra. Marcia Antúnez
+      </a>
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Paula%20Riquelme" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer">
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        Dra. Paula Riquelme
+      </a>
+      <a href="contacto.html" class="btn btn--ghost btn--lg">Formulario de contacto</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">Antúnez &amp; Riquelme</p>
+        <p class="footer__tagline">Especialistas en endodoncia. Santiago, Chile.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Footer"><p class="footer__heading">Páginas</p><ul class="footer__links"><li><a href="index.html" class="footer__link">Inicio</a></li><li><a href="servicios.html" class="footer__link">Servicios</a></li><li><a href="clinicas.html" class="footer__link">Clínicas</a></li><li><a href="blog.html" class="footer__link">Blog</a></li><li><a href="investigacion.html" class="footer__link">Investigación</a></li><li><a href="contacto.html" class="footer__link">Contacto</a></li></ul></nav>
+      <div><p class="footer__heading">Especialistas</p><ul class="footer__links"><li><a href="contacto.html" class="footer__link">Dra. Marcia Antúnez</a></li><li><a href="contacto.html" class="footer__link">Dra. Paula Riquelme</a></li><li><a href="clinicas.html" class="footer__link">Clínica Las Condes</a></li><li><a href="clinicas.html" class="footer__link">Clínica Providencia</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 Antúnez &amp; Riquelme Endodoncia. Todos los derechos reservados.</p>
+      <nav class="footer__legal"><a href="#">Política de privacidad</a><a href="#">Términos de uso</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALES -->
+<div class="modal-overlay" id="modal-1" role="dialog" aria-modal="true" aria-labelledby="m1t" aria-hidden="true">
+  <div class="modal"><button class="modal__close" data-close aria-label="Cerrar">✕</button>
+    <div class="modal__icon-wrap"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C11 3 8 6 8 10c0 2 .5 4 1.5 5.5S11 18 11 22c0 3 1 7 5 7s5-4 5-7c0-4 1.5-5 2.5-6.5S25 12 25 10c0-4-3-7-9-7z"/><line x1="16" y1="14" x2="16" y2="26"/></svg></div>
+    <h2 class="modal__title" id="m1t">Tratamiento de conducto (Endodoncia)</h2>
+    <p class="modal__subtitle">Las Condes y Providencia · Dra. Marcia Antúnez y Dra. Paula Riquelme</p>
+    <div class="modal__body">
+      <p>La endodoncia es el procedimiento que salva un diente cuando su pulpa está infectada o inflamada. Gracias a la anestesia local moderna y las técnicas actuales, el tratamiento es completamente indoloro. De hecho, su objetivo principal es eliminar el dolor que ya sientes.</p>
+      <h4>¿Cuándo se necesita?</h4>
+      <ul><li>Dolor intenso o prolongado al calor o frío</li><li>Dolor espontáneo sin estímulo</li><li>Infección o absceso en la encía</li><li>Diente oscurecido por trauma previo</li><li>Caries muy profunda que llegó a la pulpa</li></ul>
+      <h4>El procedimiento paso a paso</h4>
+      <ul><li>Anestesia local: el diente queda completamente dormido</li><li>Apertura y acceso a los conductos radiculares</li><li>Limpieza con instrumentos de níquel-titanio</li><li>Irrigación ultrasónica para eliminar bacterias</li><li>Obturación hermética con gutapercha termoplástica</li><li>Restauración provisional y derivación a tu dentista</li></ul>
+    </div>
+    <div class="modal__cta"><a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20sobre%20un%20tratamiento%20de%20conducto" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>Agendar consulta</a><button class="btn btn--outline" data-close>Cerrar</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-2" role="dialog" aria-modal="true" aria-labelledby="m2t" aria-hidden="true">
+  <div class="modal"><button class="modal__close" data-close aria-label="Cerrar">✕</button>
+    <div class="modal__icon-wrap"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 16a8 8 0 0016 0"/><path d="M24 16a8 8 0 00-16 0"/><path d="M20 12l4 4-4 4"/><path d="M12 20l-4-4 4-4"/></svg></div>
+    <h2 class="modal__title" id="m2t">Retratamiento endodóntico</h2>
+    <p class="modal__subtitle">Las Condes y Providencia · Ambas especialistas</p>
+    <div class="modal__body">
+      <p>A veces un tratamiento de conducto previo no resolvió el problema completamente. El retratamiento consiste en reabrir el diente, retirar el material anterior, limpiar con mayor profundidad y volver a sellarlo. Con tecnología actual, los resultados son significativamente mejores.</p>
+      <h4>¿Cuándo está indicado?</h4>
+      <ul><li>Dolor persistente tras un tratamiento previo</li><li>Lesión periapical visible en radiografía o CBCT</li><li>Conducto no tratado detectado por microscopía</li><li>Necesidad de corona o poste con conducto deficiente</li></ul>
+      <h4>Ventajas del retratamiento moderno</h4>
+      <ul><li>Mayor tasa de éxito con tecnología microscópica</li><li>Identificación de canales adicionales</li><li>Eliminación de instrumentos fracturados en muchos casos</li><li>Alternativa real a la extracción del diente</li></ul>
+    </div>
+    <div class="modal__cta"><a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20necesito%20un%20retratamiento%20endodóntico" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>Agendar consulta</a><button class="btn btn--outline" data-close>Cerrar</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-3" role="dialog" aria-modal="true" aria-labelledby="m3t" aria-hidden="true">
+  <div class="modal"><button class="modal__close" data-close aria-label="Cerrar">✕</button>
+    <div class="modal__icon-wrap"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="5"/><circle cx="16" cy="16" r="10" stroke-dasharray="3 2.5"/><line x1="16" y1="3" x2="16" y2="6"/><line x1="16" y1="26" x2="16" y2="29"/><line x1="3" y1="16" x2="6" y2="16"/><line x1="26" y1="16" x2="29" y2="16"/></svg></div>
+    <h2 class="modal__title" id="m3t">Microcirugía apical (Apicectomía)</h2>
+    <p class="modal__subtitle">Providencia · Dra. Paula Riquelme</p>
+    <div class="modal__body">
+      <p>Cirugía endodóntica mínimamente invasiva para cuando la infección en la punta de la raíz no puede resolverse de forma convencional. Con microscopio operatorio, accedemos directamente al ápice, eliminamos el tejido infectado y sellamos con materiales biocompatibles de última generación.</p>
+      <h4>¿Quién necesita una apicectomía?</h4>
+      <ul><li>Lesión periapical persistente tras tratamiento y retratamiento</li><li>Dientes con anatomía compleja que impide el acceso coronario</li><li>Instrumentos fracturados no recuperables</li><li>Reabsorción radicular externa en la zona apical</li></ul>
+      <h4>¿Qué esperar después?</h4>
+      <ul><li>Leve inflamación los primeros 2-3 días</li><li>Control al 7° día para revisión de puntos</li><li>Radiografía de control a los 6 y 12 meses</li><li>Tasa de éxito sobre 90% en manos expertas</li></ul>
+    </div>
+    <div class="modal__cta"><a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20información%20sobre%20microcirugía%20apical" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>Agendar con Dra. Paula</a><button class="btn btn--outline" data-close>Cerrar</button></div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-4" role="dialog" aria-modal="true" aria-labelledby="m4t" aria-hidden="true">
+  <div class="modal"><button class="modal__close" data-close aria-label="Cerrar">✕</button>
+    <div class="modal__icon-wrap"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="13" r="7"/><circle cx="16" cy="13" r="3"/><line x1="16" y1="20" x2="16" y2="28"/><line x1="12" y1="26" x2="20" y2="26"/><line x1="9" y1="6" x2="23" y2="6"/></svg></div>
+    <h2 class="modal__title" id="m4t">Diagnóstico microscópico</h2>
+    <p class="modal__subtitle">Las Condes y Providencia · Ambas especialistas</p>
+    <div class="modal__body">
+      <p>El microscopio operatorio nos permite examinar el interior del diente con magnificación de hasta 25x, revelando detalles imposibles de detectar a simple vista o con radiografía convencional. Es especialmente útil en casos de dolor sin causa aparente o fracasos previos de tratamiento.</p>
+      <h4>¿Qué podemos detectar?</h4>
+      <ul><li>Fracturas verticales o coronales no visibles en radiografía</li><li>Canales adicionales no tratados</li><li>Calcificaciones del conducto</li><li>Perforaciones de la raíz por tratamientos previos</li><li>Reabsorción radicular interna o externa</li><li>Instrumentos fracturados en conductos previos</li></ul>
+      <h4>¿Cuánto dura la consulta?</h4>
+      <ul><li>30 a 45 minutos en total</li><li>Incluye fotografía clínica y registro del examen</li><li>Informe escrito con diagnóstico y plan de tratamiento</li></ul>
+    </div>
+    <div class="modal__cta"><a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20un%20diagnóstico%20microscópico" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer"><svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>Agendar consulta</a><button class="btn btn--outline" data-close>Cerrar</button></div>
+  </div>
+</div>
+
+<!-- WA FLOTANTE -->
+<div class="wa-float" aria-label="Contacto rápido por WhatsApp">
+  <div class="wa-float__panel" id="waPanel" role="dialog" aria-hidden="true">
+    <p class="wa-float__panel-title">¿Con quién deseas hablar?</p>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Marcia%20Antúnez" class="wa-float__option" target="_blank" rel="noopener noreferrer"><div class="wa-float__option-icon" aria-hidden="true">MA</div>Dra. Marcia Antúnez</a>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Paula%20Riquelme" class="wa-float__option" target="_blank" rel="noopener noreferrer"><div class="wa-float__option-icon" aria-hidden="true">PR</div>Dra. Paula Riquelme</a>
+  </div>
+  <button class="wa-float__btn" id="waToggle" aria-label="Abrir WhatsApp" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){const n=document.getElementById('navbar');function s(){n.classList.toggle('navbar--scrolled',window.scrollY>60);n.classList.toggle('navbar--transparent',window.scrollY<=60);}window.addEventListener('scroll',s,{passive:true});s();})();
+(function(){const t=document.getElementById('navToggle'),d=document.getElementById('navDrawer'),o=document.getElementById('navOverlay');function open(){t.classList.add('is-open');d.classList.add('is-open');o.classList.add('is-open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function close(){t.classList.remove('is-open');d.classList.remove('is-open');o.classList.remove('is-open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';}t.addEventListener('click',()=>t.classList.contains('is-open')?close():open());o.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});})();
+(function(){const btn=document.getElementById('waToggle'),panel=document.getElementById('waPanel');btn.addEventListener('click',()=>{const o=panel.classList.toggle('is-open');btn.setAttribute('aria-expanded',o);panel.setAttribute('aria-hidden',!o);});document.addEventListener('click',e=>{if(!e.target.closest('.wa-float')){panel.classList.remove('is-open');btn.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});})();
+(function(){
+  function openModal(id){const m=document.getElementById(id);if(!m)return;m.classList.add('is-open');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  function closeModal(m){m.classList.remove('is-open');m.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+  document.querySelectorAll('[data-target]').forEach(btn=>btn.addEventListener('click',()=>openModal(btn.getAttribute('data-target'))));
+  document.querySelectorAll('.service-full-card').forEach(card=>{card.addEventListener('click',function(e){if(e.target.closest('[data-target]')||e.target.closest('[data-close]'))return;openModal(card.getAttribute('data-modal'));});});
+  document.querySelectorAll('[data-close]').forEach(btn=>btn.addEventListener('click',()=>closeModal(btn.closest('.modal-overlay'))));
+  document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeModal(o);}));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.is-open').forEach(m=>closeModal(m));});
+})();
+(function(){const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});els.forEach(el=>obs.observe(el));})();
+</script>
+</body>
+</html>

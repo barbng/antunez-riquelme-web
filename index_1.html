@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antúnez &amp; Riquelme | Endodoncia Especializada · Santiago, Chile</title>
+  <meta name="description" content="Especialistas en endodoncia en Santiago. Dra. Marcia Antúnez y Dra. Paula Riquelme ofrecen tratamientos de conducto, retratamiento y microcirugía apical con tecnología de punta." />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Antúnez &amp; Riquelme | Endodoncia Especializada" />
+  <meta property="og:description" content="Especialistas en endodoncia en Santiago de Chile. Tecnología de punta, atención personalizada." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://antunezriquelme.cl/" />
+  <link rel="canonical" href="https://antunezriquelme.cl/" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════════════ -->
+<header class="navbar navbar--transparent" id="navbar" role="banner">
+  <div class="container">
+    <nav class="navbar__inner" aria-label="Navegación principal">
+      <!-- Logo -->
+      <a href="index.html" class="navbar__logo" aria-label="Inicio Antúnez &amp; Riquelme">
+        Antúnez &amp; Riquelme
+        <span>Endodoncia Especializada</span>
+      </a>
+
+      <!-- Links desktop -->
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html" class="navbar__link navbar__link--active">Inicio</a></li>
+        <li><a href="servicios.html" class="navbar__link">Servicios</a></li>
+        <li><a href="clinicas.html" class="navbar__link">Clínicas</a></li>
+        <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        <li><a href="investigacion.html" class="navbar__link">Investigación</a></li>
+        <li><a href="contacto.html" class="navbar__link">Contacto</a></li>
+      </ul>
+
+      <a href="contacto.html" class="btn btn--outline navbar__cta btn--sm">
+        Agendar consulta
+      </a>
+
+      <!-- Hamburger mobile -->
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="navbar__overlay" id="navOverlay"></div>
+<nav class="navbar__drawer" id="navDrawer" aria-label="Menú móvil">
+  <a href="index.html" class="navbar__link navbar__link--active">Inicio</a>
+  <a href="servicios.html" class="navbar__link">Servicios</a>
+  <a href="clinicas.html" class="navbar__link">Clínicas</a>
+  <a href="blog.html" class="navbar__link">Blog</a>
+  <a href="investigacion.html" class="navbar__link">Investigación</a>
+  <a href="contacto.html" class="navbar__link">Contacto</a>
+  <a href="contacto.html" class="btn btn--outline navbar__cta">Agendar consulta</a>
+</nav>
+
+<main id="main">
+
+<!-- ══════════════════════════════════════════════
+     HERO SPLIT SCREEN
+══════════════════════════════════════════════ -->
+<section class="hero" aria-label="Presentación de las especialistas">
+
+  <!-- Línea central -->
+  <div class="hero__divider" aria-hidden="true"></div>
+
+  <!-- Logo / brand flotante central (solo desktop) -->
+  <div class="hero__brand" aria-hidden="true">
+    <p class="hero__brand-name">Antúnez &amp; Riquelme</p>
+    <span class="hero__brand-sub">Endodoncia Especializada · Santiago</span>
+  </div>
+
+  <!-- Panel Dra. Marcia Antúnez -->
+  <div class="hero__panel hero__panel--marcia">
+    <!-- Fondo: placeholder elegante con iniciales -->
+    <div class="hero__photo-placeholder" style="background: linear-gradient(135deg, #3a3330 0%, #2C2C2A 100%);" aria-hidden="true">
+      <div class="hero__initials">MA</div>
+    </div>
+    <!-- Cuando se disponga de la foto real, reemplazar por:
+    <img src="img/marcia-antunez.jpg" alt="Dra. Marcia Antúnez" class="hero__bg" loading="eager" fetchpriority="high" />
+    -->
+
+    <div class="hero__content">
+      <span class="hero__eyebrow">Especialista en Endodoncia</span>
+      <h2 class="hero__name">Dra. Marcia Antúnez</h2>
+      <p class="hero__title">Cirujana Dentista · Especialista en Endodoncia · Docente universitaria</p>
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Marcia%20Antúnez"
+         class="btn btn--whatsapp btn--sm"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Contactar a Dra. Marcia por WhatsApp">
+        <!-- WhatsApp icon -->
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Panel Dra. Paula Riquelme -->
+  <div class="hero__panel hero__panel--paula">
+    <div class="hero__photo-placeholder" style="background: linear-gradient(135deg, #2C2C2A 0%, #383330 100%);" aria-hidden="true">
+      <div class="hero__initials">PR</div>
+    </div>
+    <!-- Foto real: <img src="img/paula-riquelme.jpg" alt="Dra. Paula Riquelme" class="hero__bg" loading="eager" /> -->
+
+    <div class="hero__content">
+      <span class="hero__eyebrow">Especialista en Endodoncia</span>
+      <h2 class="hero__name">Dra. Paula Riquelme</h2>
+      <p class="hero__title">Cirujana Dentista · Especialista en Endodoncia · Investigadora</p>
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20agendar%20una%20consulta%20con%20la%20Dra.%20Paula%20Riquelme"
+         class="btn btn--whatsapp btn--sm"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Contactar a Dra. Paula por WhatsApp">
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECCIÓN PRESENTACIÓN
+══════════════════════════════════════════════ -->
+<section class="section" id="nosotras" aria-labelledby="about-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Quiénes somos</span>
+      <h2 class="section__title" id="about-title">Especialistas con propósito</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="about__intro reveal">
+      <p>
+        Somos dos especialistas en endodoncia convencidas de que salvar una pieza dental natural es siempre la mejor decisión. Nos formamos en las mejores instituciones del país y del extranjero, y hoy combinamos experiencia clínica, docencia universitaria e investigación científica para ofrecer un tratamiento que va más allá del procedimiento: buscamos que cada paciente comprenda su diagnóstico, se sienta acompañada y salga con su sonrisa intacta.
+      </p>
+    </div>
+
+    <div class="about__grid">
+
+      <!-- Card Dra. Marcia -->
+      <article class="doctor-card reveal reveal--delay-1">
+        <div class="doctor-card__avatar-placeholder" aria-label="Iniciales Dra. Marcia Antúnez">MA</div>
+        <div>
+          <h3 class="doctor-card__name">Dra. Marcia Antúnez</h3>
+          <p class="doctor-card__degree">Cirujana Dentista · Especialista en Endodoncia</p>
+        </div>
+        <div class="divider divider--left"></div>
+        <p class="doctor-card__bio">
+          Formada en la Pontificia Universidad Católica de Chile y con especialización en Endodoncia en la Universidad de Chile, la Dra. Antúnez combina más de quince años de práctica clínica con docencia universitaria. Ha participado en programas de perfeccionamiento en España y Estados Unidos, y es reconocida por su enfoque empático y preciso en el diagnóstico del dolor dental.
+        </p>
+        <div class="doctor-card__tags" aria-label="Áreas de especialidad">
+          <span class="tag">Endodoncia compleja</span>
+          <span class="tag">Diagnóstico diferencial</span>
+          <span class="tag">Docencia UC</span>
+        </div>
+      </article>
+
+      <!-- Card Dra. Paula -->
+      <article class="doctor-card reveal reveal--delay-2">
+        <div class="doctor-card__avatar-placeholder" aria-label="Iniciales Dra. Paula Riquelme">PR</div>
+        <div>
+          <h3 class="doctor-card__name">Dra. Paula Riquelme</h3>
+          <p class="doctor-card__degree">Cirujana Dentista · Especialista en Endodoncia</p>
+        </div>
+        <div class="divider divider--left"></div>
+        <p class="doctor-card__bio">
+          Graduada con distinción máxima de la Universidad de Chile, la Dra. Riquelme realizó su especialización en endodoncia con énfasis en microcirugía apical y uso de microscopio operatorio. Investigadora activa, ha publicado en revistas internacionales y participa como docente en el programa de especialización de Endodoncia de su universidad. Su precisión quirúrgica y rigor científico son su sello.
+        </p>
+        <div class="doctor-card__tags" aria-label="Áreas de especialidad">
+          <span class="tag">Microcirugía apical</span>
+          <span class="tag">Microscopía</span>
+          <span class="tag">Investigación U. de Chile</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     ESTADÍSTICAS
+══════════════════════════════════════════════ -->
+<section class="section stats" aria-labelledby="stats-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">En cifras</span>
+      <h2 class="section__title" id="stats-title">El respaldo de la experiencia</h2>
+    </div>
+    <div class="stats__grid">
+
+      <div class="stat-item reveal">
+        <span class="stat-item__number" data-target="2000" data-suffix="+">0</span>
+        <span class="stat-item__label">Pacientes tratadas con éxito</span>
+      </div>
+
+      <div class="stat-item reveal reveal--delay-1">
+        <span class="stat-item__number" data-target="15" data-suffix="+">0</span>
+        <span class="stat-item__label">Años de experiencia clínica</span>
+      </div>
+
+      <div class="stat-item reveal reveal--delay-2">
+        <span class="stat-item__number" data-target="2" data-suffix="">0</span>
+        <span class="stat-item__label">Clínicas en Santiago</span>
+      </div>
+
+      <div class="stat-item reveal reveal--delay-3">
+        <span class="stat-item__number" data-target="98" data-suffix="%">0</span>
+        <span class="stat-item__label">Tasa de éxito en tratamientos</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SERVICIOS (preview)
+══════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="services-preview-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Nuestros servicios</span>
+      <h2 class="section__title" id="services-preview-title">¿En qué te podemos ayudar?</h2>
+      <p class="section__subtitle">Tratamos todas las condiciones de la pulpa dental y los tejidos que rodean la raíz, con tecnología de punta y sin dolor.</p>
+    </div>
+
+    <div class="services__grid">
+
+      <!-- Servicio 1 -->
+      <article class="service-card reveal">
+        <!-- Ícono: diente outline -->
+        <svg class="service-card__icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M24 4c-5 0-9 2-11 5-2-1-4-1-6 1s-3 5-3 9c0 6 2 10 4 12s3 3 3 7c0 2 1 6 3 8s5 3 10 3 8-1 10-3 3-6 3-8c0-4 1-5 3-7s4-6 4-12c0-4-1-7-3-9s-4-2-6-1C33 6 29 4 24 4z"/>
+        </svg>
+        <div>
+          <h3 class="service-card__name">Tratamiento de conducto</h3>
+          <p class="service-card__desc">Eliminamos la infección dentro de la raíz de tu diente para que puedas conservarlo. El procedimiento es indoloro y se realiza en una o dos sesiones con anestesia local.</p>
+        </div>
+        <span class="service-card__clinic">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>
+          Las Condes · Providencia
+        </span>
+        <a href="servicios.html" class="btn btn--outline btn--sm">Ver más</a>
+      </article>
+
+      <!-- Servicio 2 -->
+      <article class="service-card reveal reveal--delay-1">
+        <svg class="service-card__icon" viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M10 24h28M24 10v28M18 16l-8 8 8 8M30 16l8 8-8 8"/>
+        </svg>
+        <div>
+          <h3 class="service-card__name">Retratamiento endodóntico</h3>
+          <p class="service-card__desc">Si un tratamiento anterior no tuvo el resultado esperado, revisamos y tratamos nuevamente los conductos para salvar tu diente con técnicas actualizadas.</p>
+        </div>
+        <span class="service-card__clinic">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>
+          Las Condes · Providencia
+        </span>
+        <a href="servicios.html" class="btn btn--outline btn--sm">Ver más</a>
+      </article>
+
+      <!-- Servicio 3 -->
+      <article class="service-card reveal reveal--delay-2">
+        <svg class="service-card__icon" viewBox="0 0 48 48" aria-hidden="true">
+          <circle cx="24" cy="24" r="6"/>
+          <circle cx="24" cy="24" r="12" stroke-dasharray="4 3"/>
+          <line x1="24" y1="8" x2="24" y2="4"/>
+          <line x1="24" y1="44" x2="24" y2="40"/>
+          <line x1="8" y1="24" x2="4" y2="24"/>
+          <line x1="44" y1="24" x2="40" y2="24"/>
+        </svg>
+        <div>
+          <h3 class="service-card__name">Microcirugía apical</h3>
+          <p class="service-card__desc">Para casos complejos donde el tratamiento convencional no es suficiente. Con microscopio de alta resolución y mínima invasión, resolvemos la infección directamente en la punta de la raíz.</p>
+        </div>
+        <span class="service-card__clinic">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>
+          Providencia — Dra. Paula Riquelme
+        </span>
+        <a href="servicios.html" class="btn btn--outline btn--sm">Ver más</a>
+      </article>
+
+      <!-- Servicio 4 -->
+      <article class="service-card reveal reveal--delay-3">
+        <svg class="service-card__icon" viewBox="0 0 48 48" aria-hidden="true">
+          <rect x="8" y="8" width="32" height="32" rx="4"/>
+          <circle cx="24" cy="24" r="7"/>
+          <circle cx="24" cy="24" r="3" fill="currentColor" stroke="none" style="fill:var(--accent)"/>
+          <line x1="24" y1="8" x2="24" y2="14"/>
+          <line x1="24" y1="34" x2="24" y2="40"/>
+          <line x1="8" y1="24" x2="14" y2="24"/>
+          <line x1="34" y1="24" x2="40" y2="24"/>
+        </svg>
+        <div>
+          <h3 class="service-card__name">Diagnóstico microscópico</h3>
+          <p class="service-card__desc">Utilizamos microscopio operatorio de última generación para identificar fracturas, canales adicionales y lesiones invisibles al ojo desnudo o a la radiografía convencional.</p>
+        </div>
+        <span class="service-card__clinic">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M8 1C5 1 2.5 3.2 2.5 6c0 4 5.5 9 5.5 9s5.5-5 5.5-9C13.5 3.2 11 1 8 1z"/></svg>
+          Las Condes · Providencia
+        </span>
+        <a href="servicios.html" class="btn btn--outline btn--sm">Ver más</a>
+      </article>
+
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+      <a href="servicios.html" class="btn btn--primary">Ver todos los servicios</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     TESTIMONIOS
+══════════════════════════════════════════════ -->
+<section class="section section--alt" aria-labelledby="testimonials-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Testimonios</span>
+      <h2 class="section__title" id="testimonials-title">Lo que dicen nuestras pacientes</h2>
+      <p class="section__subtitle">La confianza de quienes ya pasaron por nuestras manos es nuestro mayor orgullo.</p>
+    </div>
+
+    <div class="testimonials__grid">
+
+      <!-- Testimonio 1 -->
+      <article class="testimonial-card reveal">
+        <div class="testimonial-card__stars" aria-label="5 estrellas">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-card__text">
+          Llegué con un dolor insoportable y con mucho miedo. La Dra. Marcia me explicó todo el procedimiento paso a paso, y lo que más me sorprendió fue que no sentí nada. Me voy con el diente salvado y una experiencia completamente distinta a lo que esperaba.
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">C</div>
+          <div>
+            <p class="testimonial-card__name">Claudia M.</p>
+            <p class="testimonial-card__meta">Paciente, Las Condes</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonio 2 -->
+      <article class="testimonial-card reveal reveal--delay-1">
+        <div class="testimonial-card__stars" aria-label="5 estrellas">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-card__text">
+          Me derivaron para una microcirugía apical y la verdad tenía muchas dudas. La Dra. Paula fue increíblemente clara y técnica al mismo tiempo. La clínica es preciosa, limpia y muy tranquila. 100% recomendadas.
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">V</div>
+          <div>
+            <p class="testimonial-card__name">Valentina R.</p>
+            <p class="testimonial-card__meta">Paciente, Providencia</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Testimonio 3 -->
+      <article class="testimonial-card reveal reveal--delay-2">
+        <div class="testimonial-card__stars" aria-label="5 estrellas">
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg class="star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-card__text">
+          Fui por un retratamiento de un conducto que me habían hecho hace años. La Dra. Marcia encontró un canal adicional que nunca se había tratado. Gracias a su diagnóstico pude conservar el diente. Profesionalismo total.
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar" aria-hidden="true">S</div>
+          <div>
+            <p class="testimonial-card__name">Sofía T.</p>
+            <p class="testimonial-card__meta">Paciente, Las Condes</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     CTA FINAL
+══════════════════════════════════════════════ -->
+<section class="cta-final" aria-labelledby="cta-title">
+  <div class="container" style="position:relative; z-index:1;">
+    <span class="section__eyebrow cta-final__eyebrow">Agenda tu consulta</span>
+    <h2 class="cta-final__title" id="cta-title">¿Lista para tu primera consulta?</h2>
+    <p class="cta-final__subtitle">
+      Sin listas de espera largas. Cuéntanos tu caso y agendamos tu hora directamente por WhatsApp.
+    </p>
+    <div class="cta-final__buttons">
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20agendar%20con%20la%20Dra.%20Marcia%20Antúnez"
+         class="btn btn--whatsapp btn--lg"
+         target="_blank" rel="noopener noreferrer">
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+        Dra. Marcia Antúnez
+      </a>
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20agendar%20con%20la%20Dra.%20Paula%20Riquelme"
+         class="btn btn--whatsapp btn--lg"
+         target="_blank" rel="noopener noreferrer">
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/>
+        </svg>
+        Dra. Paula Riquelme
+      </a>
+      <a href="contacto.html" class="btn btn--ghost btn--lg">Ver formulario de contacto</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
+      <!-- Col 1: Brand -->
+      <div>
+        <p class="footer__brand">Antúnez &amp; Riquelme</p>
+        <p class="footer__tagline">Especialistas en endodoncia. Santiago, Chile.</p>
+        <div class="footer__social" aria-label="Redes sociales">
+          <!-- Instagram -->
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" class="footer__social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Páginas -->
+      <nav aria-label="Navegación footer">
+        <p class="footer__heading">Páginas</p>
+        <ul class="footer__links" role="list">
+          <li><a href="index.html" class="footer__link">Inicio</a></li>
+          <li><a href="servicios.html" class="footer__link">Servicios</a></li>
+          <li><a href="clinicas.html" class="footer__link">Clínicas</a></li>
+          <li><a href="blog.html" class="footer__link">Blog</a></li>
+          <li><a href="investigacion.html" class="footer__link">Investigación</a></li>
+          <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Col 3: Especialistas -->
+      <div>
+        <p class="footer__heading">Especialistas</p>
+        <ul class="footer__links" role="list">
+          <li><a href="contacto.html" class="footer__link">Dra. Marcia Antúnez</a></li>
+          <li><a href="contacto.html" class="footer__link">Dra. Paula Riquelme</a></li>
+          <li><a href="clinicas.html" class="footer__link">Clínica Las Condes</a></li>
+          <li><a href="clinicas.html" class="footer__link">Clínica Providencia</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        © 2025 Antúnez &amp; Riquelme Endodoncia. Todos los derechos reservados.
+      </p>
+      <nav class="footer__legal" aria-label="Avisos legales">
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos de uso</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     BOTÓN FLOTANTE WHATSAPP
+══════════════════════════════════════════════ -->
+<div class="wa-float" aria-label="Contacto rápido por WhatsApp">
+
+  <!-- Panel desplegable -->
+  <div class="wa-float__panel" id="waPanel" role="dialog" aria-label="Seleccionar doctora para WhatsApp" aria-hidden="true">
+    <p class="wa-float__panel-title">¿Con quién deseas hablar?</p>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Marcia%20Antúnez"
+       class="wa-float__option"
+       target="_blank" rel="noopener noreferrer">
+      <div class="wa-float__option-icon" aria-hidden="true">MA</div>
+      Dra. Marcia Antúnez
+    </a>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Paula%20Riquelme"
+       class="wa-float__option"
+       target="_blank" rel="noopener noreferrer">
+      <div class="wa-float__option-icon" aria-hidden="true">PR</div>
+      Dra. Paula Riquelme
+    </a>
+  </div>
+
+  <!-- Botón principal -->
+  <button class="wa-float__btn" id="waToggle" aria-label="Abrir opciones de WhatsApp" aria-expanded="false" aria-controls="waPanel">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/>
+    </svg>
+  </button>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SCRIPTS
+══════════════════════════════════════════════ -->
+<script>
+/* ── Navbar scroll ── */
+(function () {
+  const navbar = document.getElementById('navbar');
+  let lastScroll = 0;
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    if (scrollY > 60) {
+      navbar.classList.add('navbar--scrolled');
+      navbar.classList.remove('navbar--transparent');
+    } else {
+      navbar.classList.remove('navbar--scrolled');
+      navbar.classList.add('navbar--transparent');
+    }
+    lastScroll = scrollY;
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* ── Mobile drawer ── */
+(function () {
+  const toggle   = document.getElementById('navToggle');
+  const drawer   = document.getElementById('navDrawer');
+  const overlay  = document.getElementById('navOverlay');
+
+  function open() {
+    toggle.classList.add('is-open');
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-open');
+    toggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    toggle.classList.remove('is-open');
+    drawer.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', function () {
+    toggle.classList.contains('is-open') ? close() : open();
+  });
+
+  overlay.addEventListener('click', close);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+})();
+
+/* ── WhatsApp flotante ── */
+(function () {
+  const btn   = document.getElementById('waToggle');
+  const panel = document.getElementById('waPanel');
+
+  btn.addEventListener('click', function () {
+    const isOpen = panel.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', isOpen);
+    panel.setAttribute('aria-hidden', !isOpen);
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.wa-float')) {
+      panel.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+  });
+})();
+
+/* ── Contador animado de estadísticas ── */
+(function () {
+  const counters = document.querySelectorAll('[data-target]');
+  let started = false;
+
+  function animateCounters() {
+    counters.forEach(function (el) {
+      const target = parseInt(el.getAttribute('data-target'), 10);
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1600;
+      const step = Math.ceil(target / (duration / 16));
+      let current = 0;
+
+      const timer = setInterval(function () {
+        current = Math.min(current + step, target);
+        el.textContent = current.toLocaleString('es-CL') + suffix;
+        if (current >= target) clearInterval(timer);
+      }, 16);
+    });
+  }
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        animateCounters();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const statsSection = document.querySelector('.stats');
+  if (statsSection) observer.observe(statsSection);
+})();
+
+/* ── Reveal al hacer scroll ── */
+(function () {
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
