@@ -498,29 +498,9 @@ p:last-child { margin-bottom: 0; }
   z-index: 1;
 }
 
-.hero__panel--marcia::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    transparent 70%,
-    rgba(44,44,42,0.15) 100%
-  );
-  z-index: 2;
-}
 
-.hero__panel--paula::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to left,
-    transparent 70%,
-    rgba(44,44,42,0.15) 100%
-  );
-  z-index: 2;
-}
+
+
 
 .hero__bg {
   position: absolute;
