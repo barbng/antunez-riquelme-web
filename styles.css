@@ -478,6 +478,11 @@ p:last-child { margin-bottom: 0; }
   position: relative;
   overflow: hidden;
   min-height: 100dvh;
+  background: #D9CFC6;
+}
+
+.hero__panel--paula {
+  background: #EDE8E2;
 }
 
 .hero__panel::after {
