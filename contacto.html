@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Antúnez &amp; Riquelme · Agenda tu consulta en Santiago</title>
+  <meta name="description" content="Agenda tu consulta con la Dra. Marcia Antúnez o la Dra. Paula Riquelme. Clínicas en Las Condes y Providencia, Santiago." />
+  <meta property="og:title" content="Contacto | Antúnez &amp; Riquelme Endodoncia" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://endoexperts.cl/contacto.html" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .contact-hero {
+      background: var(--c-carbon);
+      padding: 10rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(196,145,122,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(212,184,150,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .contact-hero__title   { color: var(--c-white); margin-bottom: 1rem; }
+    .contact-hero__subtitle {
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      margin-inline: auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    /* Cards doctoras */
+    .contact-doctors {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    .contact-doctor-card {
+      background: var(--c-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
+    }
+
+    .contact-doctor-card:hover {
+      box-shadow: 0 12px 48px rgba(196,145,122,0.12);
+      transform: translateY(-2px);
+    }
+
+    .contact-doctor-card__photo {
+      width: 100%;
+      aspect-ratio: 3/2;
+      overflow: hidden;
+      background: var(--bg-section);
+      position: relative;
+    }
+
+    .contact-doctor-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .contact-doctor-card:hover .contact-doctor-card__photo img {
+      transform: scale(1.04);
+    }
+
+    .contact-doctor-card__photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-style: italic;
+      color: var(--accent);
+      background: var(--bg-section);
+    }
+
+    .contact-doctor-card__body {
+      padding: 2rem;
+    }
+
+    .contact-doctor-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-doctor-card__role {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-doctor-card__details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-doctor-card__detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.875rem;
+      color: var(--c-carbon-mid);
+    }
+
+    .contact-doctor-card__detail svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    /* Formulario */
+    .contact-form-section {
+      background: var(--bg-section);
+      padding-block: var(--section-py);
+    }
+
+    .contact-form-wrap {
+      background: var(--c-white);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 3rem;
+      max-width: 760px;
+      margin-inline: auto;
+    }
+
+    .contact-form-wrap .section__header {
+      text-align: left;
+      margin-inline: 0;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-form-wrap .divider { margin-left: 0; }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    /* FAQ */
+    .faq-section { padding-block: var(--section-py); }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .form-success.is-visible { display: block; }
+    .form-success__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--bg-section);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+    }
+    .form-success__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 2;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-doctors { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+      .form-grid-2 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .contact-form-wrap { padding: 2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar navbar--transparent" id="navbar" role="banner">
+  <div class="container">
+    <nav class="navbar__inner" aria-label="Navegación principal">
+      <a href="index.html" class="navbar__logo">Antúnez &amp; Riquelme<span>Endodoncia Especializada</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html" class="navbar__link">Inicio</a></li>
+        <li><a href="servicios.html" class="navbar__link">Servicios</a></li>
+        <li><a href="clinicas.html" class="navbar__link">Clínicas</a></li>
+        <li><a href="blog.html" class="navbar__link">Blog</a></li>
+        <li><a href="investigacion.html" class="navbar__link">Investigación</a></li>
+        <li><a href="contacto.html" class="navbar__link navbar__link--active">Contacto</a></li>
+      </ul>
+      <a href="contacto.html" class="btn btn--outline navbar__cta btn--sm">Agendar consulta</a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="navbar__overlay" id="navOverlay"></div>
+<nav class="navbar__drawer" id="navDrawer" aria-label="Menú móvil">
+  <a href="index.html" class="navbar__link">Inicio</a>
+  <a href="servicios.html" class="navbar__link">Servicios</a>
+  <a href="clinicas.html" class="navbar__link">Clínicas</a>
+  <a href="blog.html" class="navbar__link">Blog</a>
+  <a href="investigacion.html" class="navbar__link">Investigación</a>
+  <a href="contacto.html" class="navbar__link navbar__link--active">Contacto</a>
+  <a href="contacto.html" class="btn btn--outline navbar__cta">Agendar consulta</a>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="contact-hero" aria-labelledby="contact-hero-title">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section__eyebrow" style="color:var(--c-champagne);">Estamos aquí para ti</span>
+    <h1 class="contact-hero__title" id="contact-hero-title">Agenda tu consulta</h1>
+    <p class="contact-hero__subtitle">Sin listas de espera largas. Escríbenos directamente y te respondemos a la brevedad.</p>
+  </div>
+</section>
+
+<!-- CARDS DOCTORAS -->
+<section class="section" aria-labelledby="contact-doctors-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Contacto directo</span>
+      <h2 class="section__title" id="contact-doctors-title">Elige con quién deseas atenderte</h2>
+      <div class="divider"></div>
+      <p class="section__subtitle">Cada doctora atiende en su clínica. Si no sabes cuál elegir, escríbenos y te orientamos.</p>
+    </div>
+
+    <div class="contact-doctors">
+
+      <!-- Dra. Marcia -->
+      <article class="contact-doctor-card reveal">
+        <div class="contact-doctor-card__photo">
+          <img src="marcia-antunez.jpg" alt="Dra. Marcia Antúnez" loading="lazy" />
+        </div>
+        <div class="contact-doctor-card__body">
+          <h3 class="contact-doctor-card__name">Dra. Marcia Antúnez</h3>
+          <p class="contact-doctor-card__role">Cirujana Dentista · Especialista en Endodoncia</p>
+          <div class="contact-doctor-card__details">
+            <div class="contact-doctor-card__detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Clínica Las Condes · Av. Apoquindo 4501, Of. 702</span>
+            </div>
+            <div class="contact-doctor-card__detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Lunes a viernes 9:00–18:00 · Sábado 9:00–13:00</span>
+            </div>
+            <div class="contact-doctor-card__detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              <span>Particular · Isapre · Consultar Fonasa</span>
+            </div>
+          </div>
+          <a href="https://wa.me/+569XXXXXXXX?text=Hola%20Dra.%20Marcia%2C%20quisiera%20agendar%20una%20consulta"
+             class="btn btn--whatsapp" style="width:100%;justify-content:center;"
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+            Contactar a Dra. Marcia
+          </a>
+        </div>
+      </article>
+
+      <!-- Dra. Paula -->
+      <article class="contact-doctor-card reveal reveal--delay-1">
+        <div class="contact-doctor-card__photo">
+          <img src="paula-riquelme.jpg" alt="Dra. Paula Riquelme" loading="lazy" />
+        </div>
+        <div class="contact-doctor-card__body">
+          <h3 class="contact-doctor-card__name">Dra. Paula Riquelme</h3>
+          <p class="contact-doctor-card__role">Cirujana Dentista · Especialista en Endodoncia</p>
+          <div class="contact-doctor-card__details">
+            <div class="contact-doctor-card__detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <span>Clínica Providencia · Av. Providencia 1234, Of. 502</span>
+            </div>
+            <div class="contact-doctor-card__detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Lunes a viernes 9:00–18:00 · Sábado con cita previa</span>
+            </div>
+            <div class="contact-doctor-card__detail">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+              <span>Particular · Isapre · Consultar Fonasa</span>
+            </div>
+          </div>
+          <a href="https://wa.me/+569XXXXXXXX?text=Hola%20Dra.%20Paula%2C%20quisiera%20agendar%20una%20consulta"
+             class="btn btn--whatsapp" style="width:100%;justify-content:center;"
+             target="_blank" rel="noopener noreferrer">
+            <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+            Contactar a Dra. Paula
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="contact-form-section" aria-labelledby="form-title">
+  <div class="container">
+    <div class="contact-form-wrap reveal">
+      <div class="section__header">
+        <span class="section__eyebrow">Formulario</span>
+        <h2 class="section__title" id="form-title">¿Prefieres escribirnos?</h2>
+        <div class="divider divider--left"></div>
+        <p class="section__subtitle" style="text-align:left;">Completa el formulario y te contactaremos dentro de las próximas 24 horas hábiles.</p>
+      </div>
+
+      <!-- Formulario conectado a Formspree — reemplazar YOUR_FORM_ID -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico *</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@email.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="+56 9 XXXX XXXX" autocomplete="tel" />
+          </div>
+          <div class="form-group">
+            <label for="doctora">¿Con qué doctora deseas atenderte? *</label>
+            <select id="doctora" name="doctora" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="Dra. Marcia Antúnez — Las Condes">Dra. Marcia Antúnez — Las Condes</option>
+              <option value="Dra. Paula Riquelme — Providencia">Dra. Paula Riquelme — Providencia</option>
+              <option value="No tengo preferencia">No tengo preferencia</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="motivo">Motivo de consulta *</label>
+          <select id="motivo" name="motivo" required>
+            <option value="" disabled selected>Selecciona un motivo</option>
+            <option value="Tratamiento de conducto">Tratamiento de conducto</option>
+            <option value="Retratamiento endodóntico">Retratamiento endodóntico</option>
+            <option value="Microcirugía apical">Microcirugía apical</option>
+            <option value="Diagnóstico microscópico">Diagnóstico microscópico</option>
+            <option value="Dolor dental / urgencia">Dolor dental / urgencia</option>
+            <option value="Consulta general">Consulta general</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos brevemente tu situación..." rows="4"></textarea>
+        </div>
+
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" />
+
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:0.5rem;">
+          <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">
+            Enviar mensaje
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <p style="font-size:0.8125rem;color:var(--text-muted);">* Campos obligatorios</p>
+        </div>
+
+      </form>
+
+      <!-- Mensaje de éxito -->
+      <div class="form-success" id="formSuccess">
+        <div class="form-success__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-serif);font-size:1.35rem;margin-bottom:0.5rem;">¡Mensaje enviado!</h3>
+        <p style="color:var(--text-muted);font-size:0.9375rem;">Te contactaremos dentro de las próximas 24 horas hábiles. Si tienes una urgencia, escríbenos directamente por WhatsApp.</p>
+        <div style="margin-top:1.5rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+          <a href="https://wa.me/+569XXXXXXXX" class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer">
+            <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+            WhatsApp urgencias
+          </a>
+          <a href="index.html" class="btn btn--outline">Volver al inicio</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__eyebrow">Preguntas frecuentes</span>
+      <h2 class="section__title" id="faq-title">Resolvemos tus dudas</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq" role="list">
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          ¿Necesito derivación de mi dentista para atenderme?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>No es estrictamente necesario, aunque es recomendable. Puedes contactarnos directamente si tienes dolor o sospechas que necesitas una evaluación endodóntica. Si tu dentista ya te derivó, tráenos la radiografía y el informe si los tienes — nos ayuda a preparar mejor tu consulta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          ¿Cuántas sesiones necesita un tratamiento de conducto?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Depende de la complejidad del caso. La mayoría de los tratamientos se resuelven en 1 a 2 sesiones. En casos con infección activa o anatomía compleja puede requerir una sesión adicional. En tu primera consulta te diremos exactamente cuántas citas necesitarás.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          ¿Es doloroso el tratamiento de conducto?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Con anestesia local moderna, el procedimiento en sí no duele. Muchas pacientes se sorprenden de lo tranquilo que resulta. Puede haber algo de sensibilidad las primeras 24 a 48 horas post-tratamiento, que se maneja perfectamente con analgésicos de venta libre. De hecho, la endodoncia está diseñada para eliminar el dolor que ya tienes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          ¿Qué previsión de salud aceptan?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Atendemos de forma particular y con la mayoría de las Isapres. Para pacientes Fonasa, te pedimos que consultes disponibilidad directamente con nosotras, ya que depende del tipo de prestación y la clínica. Puedes preguntarnos por WhatsApp antes de agendar.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          ¿Puedo ir con Fonasa?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Algunos tratamientos pueden realizarse con Fonasa libre elección. Te recomendamos consultar directamente antes de tu cita para confirmar si tu caso aplica y cuál sería tu copago. Escríbenos por WhatsApp y te orientamos sin compromiso.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false">
+          ¿Cuánto tiempo dura la recuperación después del tratamiento?
+          <svg class="faq__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq__answer">
+          <div class="faq__answer-inner">
+            <p>Para un tratamiento de conducto estándar, la recuperación es muy rápida: 24 a 48 horas de sensibilidad leve. Para una microcirugía apical, el período de recuperación es de 3 a 5 días. En ambos casos puedes retomar tus actividades normales al día siguiente del procedimiento.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">Antúnez &amp; Riquelme</p>
+        <p class="footer__tagline">Especialistas en endodoncia. Santiago, Chile.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Footer"><p class="footer__heading">Páginas</p><ul class="footer__links"><li><a href="index.html" class="footer__link">Inicio</a></li><li><a href="servicios.html" class="footer__link">Servicios</a></li><li><a href="clinicas.html" class="footer__link">Clínicas</a></li><li><a href="blog.html" class="footer__link">Blog</a></li><li><a href="investigacion.html" class="footer__link">Investigación</a></li><li><a href="contacto.html" class="footer__link">Contacto</a></li></ul></nav>
+      <div><p class="footer__heading">Especialistas</p><ul class="footer__links"><li><a href="contacto.html" class="footer__link">Dra. Marcia Antúnez</a></li><li><a href="contacto.html" class="footer__link">Dra. Paula Riquelme</a></li><li><a href="clinicas.html" class="footer__link">Clínica Las Condes</a></li><li><a href="clinicas.html" class="footer__link">Clínica Providencia</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 Antúnez &amp; Riquelme Endodoncia. Todos los derechos reservados.</p>
+      <nav class="footer__legal"><a href="#">Política de privacidad</a><a href="#">Términos de uso</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOTANTE -->
+<div class="wa-float" aria-label="Contacto rápido por WhatsApp">
+  <div class="wa-float__panel" id="waPanel" role="dialog" aria-hidden="true">
+    <p class="wa-float__panel-title">¿Con quién deseas hablar?</p>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Marcia%20Antúnez" class="wa-float__option" target="_blank" rel="noopener noreferrer"><div class="wa-float__option-icon" aria-hidden="true">MA</div>Dra. Marcia Antúnez</a>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Paula%20Riquelme" class="wa-float__option" target="_blank" rel="noopener noreferrer"><div class="wa-float__option-icon" aria-hidden="true">PR</div>Dra. Paula Riquelme</a>
+  </div>
+  <button class="wa-float__btn" id="waToggle" aria-label="Abrir WhatsApp" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){const n=document.getElementById('navbar');function s(){n.classList.toggle('navbar--scrolled',window.scrollY>60);n.classList.toggle('navbar--transparent',window.scrollY<=60);}window.addEventListener('scroll',s,{passive:true});s();})();
+(function(){const t=document.getElementById('navToggle'),d=document.getElementById('navDrawer'),o=document.getElementById('navOverlay');function open(){t.classList.add('is-open');d.classList.add('is-open');o.classList.add('is-open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function close(){t.classList.remove('is-open');d.classList.remove('is-open');o.classList.remove('is-open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';}t.addEventListener('click',()=>t.classList.contains('is-open')?close():open());o.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});})();
+(function(){const btn=document.getElementById('waToggle'),panel=document.getElementById('waPanel');btn.addEventListener('click',()=>{const o=panel.classList.toggle('is-open');btn.setAttribute('aria-expanded',o);panel.setAttribute('aria-hidden',!o);});document.addEventListener('click',e=>{if(!e.target.closest('.wa-float')){panel.classList.remove('is-open');btn.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});})();
+
+/* FAQ accordion */
+(function(){
+  document.querySelectorAll('.faq__question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq__item');
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item').forEach(i => {
+        i.classList.remove('is-open');
+        i.querySelector('.faq__question').setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+
+/* Formulario */
+(function(){
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  const submitBtn = document.getElementById('submitBtn');
+
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Validación básica
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--c-terracota)';
+        valid = false;
+      } else {
+        field.style.borderColor = '';
+      }
+    });
+    if (!valid) return;
+
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        success.classList.add('is-visible');
+      } else {
+        throw new Error('Error al enviar');
+      }
+    } catch(err) {
+      submitBtn.textContent = 'Error — intenta nuevamente';
+      submitBtn.disabled = false;
+    }
+  });
+})();
+
+/* Reveal */
+(function(){const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:0.12});els.forEach(el=>obs.observe(el));})();
+</script>
+</body>
+</html>

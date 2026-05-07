@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Antúnez &amp; Riquelme · Endodoncia Especializada Santiago</title>
+  <meta name="description" content="Artículos sobre endodoncia escritos por especialistas. Aprende sobre tratamiento de conducto, mitos, cuidados y más." />
+  <meta property="og:title" content="Blog | Antúnez &amp; Riquelme Endodoncia" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://endoexperts.cl/blog.html" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .blog-hero {
+      background: var(--c-carbon);
+      padding: 10rem 0 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 20% 50%, rgba(196,145,122,0.09) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 80% at 80% 50%, rgba(212,184,150,0.06) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .blog-hero__title   { color: var(--c-white); margin-bottom: 1rem; }
+    .blog-hero__subtitle {
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      margin-inline: auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    /* Blog card imagen placeholder con gradiente */
+    .blog-card__image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blog-card__image-placeholder svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--c-blush-dark);
+      fill: none;
+      stroke-width: 1.5;
+      opacity: 0.5;
+    }
+
+    /* Gradientes de color por categoría */
+    .blog-card__image[data-cat="Procedimientos"] {
+      background: linear-gradient(135deg, #E8D5CE 0%, #C4917A 100%);
+    }
+    .blog-card__image[data-cat="Prevención"] {
+      background: linear-gradient(135deg, #D4E8CE 0%, #7AA47C 100%);
+    }
+    .blog-card__image[data-cat="Mitos"] {
+      background: linear-gradient(135deg, #CEE0E8 0%, #7A9EC4 100%);
+    }
+    .blog-card__image[data-cat="Cuidados"] {
+      background: linear-gradient(135deg, #E8E0CE 0%, #C4AA7A 100%);
+    }
+
+    .blog-card__image-icon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .blog-card__image-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: rgba(255,255,255,0.7);
+      fill: none;
+      stroke-width: 1.2;
+    }
+
+    /* No results */
+    .blog-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+      display: none;
+    }
+    .blog-empty.is-visible { display: block; }
+    .blog-empty svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--c-blush-dark);
+      fill: none;
+      stroke-width: 1.2;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+
+    /* Featured post (primero más grande) */
+    .blog-featured {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .blog-featured .blog-card {
+      height: 100%;
+    }
+
+    .blog-featured .blog-card:first-child .blog-card__image {
+      aspect-ratio: 16/10;
+    }
+
+    @media (max-width: 1024px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .blog__grid { grid-template-columns: 1fr; }
+      .blog-featured { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar navbar--transparent" id="navbar" role="banner">
+  <div class="container">
+    <nav class="navbar__inner" aria-label="Navegación principal">
+      <a href="index.html" class="navbar__logo">Antúnez &amp; Riquelme<span>Endodoncia Especializada</span></a>
+      <ul class="navbar__links" role="list">
+        <li><a href="index.html" class="navbar__link">Inicio</a></li>
+        <li><a href="servicios.html" class="navbar__link">Servicios</a></li>
+        <li><a href="clinicas.html" class="navbar__link">Clínicas</a></li>
+        <li><a href="blog.html" class="navbar__link navbar__link--active">Blog</a></li>
+        <li><a href="investigacion.html" class="navbar__link">Investigación</a></li>
+        <li><a href="contacto.html" class="navbar__link">Contacto</a></li>
+      </ul>
+      <a href="contacto.html" class="btn btn--outline navbar__cta btn--sm">Agendar consulta</a>
+      <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+<div class="navbar__overlay" id="navOverlay"></div>
+<nav class="navbar__drawer" id="navDrawer" aria-label="Menú móvil">
+  <a href="index.html" class="navbar__link">Inicio</a>
+  <a href="servicios.html" class="navbar__link">Servicios</a>
+  <a href="clinicas.html" class="navbar__link">Clínicas</a>
+  <a href="blog.html" class="navbar__link navbar__link--active">Blog</a>
+  <a href="investigacion.html" class="navbar__link">Investigación</a>
+  <a href="contacto.html" class="navbar__link">Contacto</a>
+  <a href="contacto.html" class="btn btn--outline navbar__cta">Agendar consulta</a>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="blog-hero" aria-labelledby="blog-hero-title">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="section__eyebrow" style="color:var(--c-champagne);">Educación y salud dental</span>
+    <h1 class="blog-hero__title" id="blog-hero-title">Blog de Endodoncia</h1>
+    <p class="blog-hero__subtitle">Artículos escritos por nuestras especialistas para que entiendas tu tratamiento y cuides tu sonrisa.</p>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" aria-labelledby="blog-title">
+  <div class="container">
+
+    <!-- Buscador -->
+    <div class="blog__search reveal">
+      <svg class="blog__search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" id="blogSearch" placeholder="Buscar artículo..." aria-label="Buscar en el blog" />
+    </div>
+
+    <!-- Filtros -->
+    <div class="blog__filters reveal" role="group" aria-label="Filtrar por categoría">
+      <button class="filter-btn is-active" data-filter="todos">Todos</button>
+      <button class="filter-btn" data-filter="Procedimientos">Procedimientos</button>
+      <button class="filter-btn" data-filter="Prevención">Prevención</button>
+      <button class="filter-btn" data-filter="Mitos">Mitos</button>
+      <button class="filter-btn" data-filter="Cuidados">Cuidados</button>
+    </div>
+
+    <!-- Grid artículos -->
+    <div class="blog__grid" id="blogGrid">
+
+      <!-- Artículo 1 -->
+      <article class="blog-card reveal" data-category="Procedimientos" data-title="qué es la endodoncia y cuándo necesito una">
+        <div class="blog-card__image" data-cat="Procedimientos">
+          <div class="blog-card__image-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4C16 4 10 10 10 18c0 4 1 7 3 10s3 5 3 10c0 4 2 6 8 6s8-2 8-6c0-5 1-8 3-10s3-6 3-10c0-8-6-14-14-14z"/><line x1="24" y1="16" x2="24" y2="34"/><line x1="16" y1="24" x2="32" y2="24"/></svg>
+          </div>
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__category">Procedimientos</span>
+          <h2 class="blog-card__title">¿Qué es la endodoncia y cuándo necesito una?</h2>
+          <p class="blog-card__excerpt">Descubre en qué consiste este tratamiento, por qué es la mejor alternativa a la extracción y cómo saber si lo necesitas.</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__date">15 Marzo 2025</span>
+            <a href="articulo-1.html" class="btn btn--outline btn--sm">Leer más</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Artículo 2 -->
+      <article class="blog-card reveal reveal--delay-1" data-category="Mitos" data-title="mitos y verdades sobre el tratamiento de conducto">
+        <div class="blog-card__image" data-cat="Mitos">
+          <div class="blog-card__image-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="20"/><line x1="24" y1="14" x2="24" y2="26"/><circle cx="24" cy="32" r="2" fill="rgba(255,255,255,0.7)" stroke="none"/></svg>
+          </div>
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__category">Mitos</span>
+          <h2 class="blog-card__title">Mitos y verdades sobre el tratamiento de conducto</h2>
+          <p class="blog-card__excerpt">¿Es realmente doloroso? ¿Es mejor sacar el diente? Respondemos las creencias más comunes con evidencia científica.</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__date">28 Febrero 2025</span>
+            <a href="articulo-2.html" class="btn btn--outline btn--sm">Leer más</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Artículo 3 -->
+      <article class="blog-card reveal reveal--delay-2" data-category="Prevención" data-title="por qué duele un diente si la radiografía está bien">
+        <div class="blog-card__image" data-cat="Prevención">
+          <div class="blog-card__image-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="32" height="36" rx="3"/><line x1="16" y1="16" x2="32" y2="16"/><line x1="16" y1="24" x2="32" y2="24"/><line x1="16" y1="32" x2="24" y2="32"/></svg>
+          </div>
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__category">Prevención</span>
+          <h2 class="blog-card__title">¿Por qué duele un diente si la radiografía está bien?</h2>
+          <p class="blog-card__excerpt">El dolor dental no siempre aparece en la radiografía. Te explicamos por qué ocurre esto y qué diagnósticos hay detrás.</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__date">10 Febrero 2025</span>
+            <a href="articulo-3.html" class="btn btn--outline btn--sm">Leer más</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Artículo 4 -->
+      <article class="blog-card reveal" data-category="Procedimientos" data-title="diferencias entre endodoncia y extracción dental">
+        <div class="blog-card__image" data-cat="Procedimientos">
+          <div class="blog-card__image-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 24h16M24 16v16"/><circle cx="24" cy="24" r="18"/></svg>
+          </div>
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__category">Procedimientos</span>
+          <h2 class="blog-card__title">Diferencias entre endodoncia y extracción dental</h2>
+          <p class="blog-card__excerpt">¿Cuándo conviene salvar el diente y cuándo extraerlo? Comparamos ambas opciones para que tomes la mejor decisión.</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__date">22 Enero 2025</span>
+            <a href="articulo-4.html" class="btn btn--outline btn--sm">Leer más</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Artículo 5 -->
+      <article class="blog-card reveal reveal--delay-1" data-category="Cuidados" data-title="cómo cuidar tu diente después de un tratamiento de conducto">
+        <div class="blog-card__image" data-cat="Cuidados">
+          <div class="blog-card__image-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6C14 6 8 14 8 22c0 10 16 22 16 22s16-12 16-22C40 14 34 6 24 6z"/></svg>
+          </div>
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__category">Cuidados</span>
+          <h2 class="blog-card__title">Cómo cuidar tu diente después de un tratamiento de conducto</h2>
+          <p class="blog-card__excerpt">Los primeros días post-tratamiento son clave. Te damos una guía práctica para una recuperación rápida y sin complicaciones.</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__date">5 Enero 2025</span>
+            <a href="articulo-5.html" class="btn btn--outline btn--sm">Leer más</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Artículo 6 -->
+      <article class="blog-card reveal reveal--delay-2" data-category="Prevención" data-title="qué esperar en tu primera visita al endodoncista">
+        <div class="blog-card__image" data-cat="Prevención">
+          <div class="blog-card__image-icon">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="16" r="8"/><path d="M8 40c0-8.8 7.2-16 16-16s16 7.2 16 16"/></svg>
+          </div>
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__category">Prevención</span>
+          <h2 class="blog-card__title">Qué esperar en tu primera visita al endodoncista</h2>
+          <p class="blog-card__excerpt">¿No sabes qué va a pasar en tu primera consulta? Te contamos paso a paso qué ocurre para que llegues tranquila y preparada.</p>
+          <div class="blog-card__footer">
+            <span class="blog-card__date">18 Diciembre 2024</span>
+            <a href="articulo-6.html" class="btn btn--outline btn--sm">Leer más</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Sin resultados -->
+    <div class="blog-empty" id="blogEmpty" aria-live="polite">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <p>No encontramos artículos con ese término. Intenta otra búsqueda.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-final" aria-labelledby="blog-cta-title">
+  <div class="container" style="position:relative;z-index:1;text-align:center;">
+    <span class="section__eyebrow cta-final__eyebrow">¿Tienes dudas?</span>
+    <h2 class="cta-final__title" id="blog-cta-title">Habla directamente con una especialista</h2>
+    <p class="cta-final__subtitle">Si después de leer sigues con dudas sobre tu caso, escríbenos. Te respondemos a la brevedad.</p>
+    <div class="cta-final__buttons">
+      <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20leí%20el%20blog%20y%20tengo%20una%20pregunta" class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer">
+        <svg class="icon-wa" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+        Consultar por WhatsApp
+      </a>
+      <a href="contacto.html" class="btn btn--ghost btn--lg">Ver formulario de contacto</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">Antúnez &amp; Riquelme</p>
+        <p class="footer__tagline">Especialistas en endodoncia. Santiago, Chile.</p>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" class="footer__social-link" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Footer"><p class="footer__heading">Páginas</p><ul class="footer__links"><li><a href="index.html" class="footer__link">Inicio</a></li><li><a href="servicios.html" class="footer__link">Servicios</a></li><li><a href="clinicas.html" class="footer__link">Clínicas</a></li><li><a href="blog.html" class="footer__link">Blog</a></li><li><a href="investigacion.html" class="footer__link">Investigación</a></li><li><a href="contacto.html" class="footer__link">Contacto</a></li></ul></nav>
+      <div><p class="footer__heading">Especialistas</p><ul class="footer__links"><li><a href="contacto.html" class="footer__link">Dra. Marcia Antúnez</a></li><li><a href="contacto.html" class="footer__link">Dra. Paula Riquelme</a></li><li><a href="clinicas.html" class="footer__link">Clínica Las Condes</a></li><li><a href="clinicas.html" class="footer__link">Clínica Providencia</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2025 Antúnez &amp; Riquelme Endodoncia. Todos los derechos reservados.</p>
+      <nav class="footer__legal"><a href="#">Política de privacidad</a><a href="#">Términos de uso</a></nav>
+    </div>
+  </div>
+</footer>
+
+<!-- WA FLOTANTE -->
+<div class="wa-float" aria-label="Contacto rápido por WhatsApp">
+  <div class="wa-float__panel" id="waPanel" role="dialog" aria-hidden="true">
+    <p class="wa-float__panel-title">¿Con quién deseas hablar?</p>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Marcia%20Antúnez" class="wa-float__option" target="_blank" rel="noopener noreferrer"><div class="wa-float__option-icon" aria-hidden="true">MA</div>Dra. Marcia Antúnez</a>
+    <a href="https://wa.me/+569XXXXXXXX?text=Hola%2C%20quisiera%20consultar%20con%20la%20Dra.%20Paula%20Riquelme" class="wa-float__option" target="_blank" rel="noopener noreferrer"><div class="wa-float__option-icon" aria-hidden="true">PR</div>Dra. Paula Riquelme</a>
+  </div>
+  <button class="wa-float__btn" id="waToggle" aria-label="Abrir WhatsApp" aria-expanded="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.107.548 4.086 1.508 5.805L0 24l6.374-1.494A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.214-3.727.873.908-3.618-.234-.372A9.818 9.818 0 1112 21.818z"/></svg>
+  </button>
+</div>
+
+<script>
+(function(){const n=document.getElementById('navbar');function s(){n.classList.toggle('navbar--scrolled',window.scrollY>60);n.classList.toggle('navbar--transparent',window.scrollY<=60);}window.addEventListener('scroll',s,{passive:true});s();})();
+(function(){const t=document.getElementById('navToggle'),d=document.getElementById('navDrawer'),o=document.getElementById('navOverlay');function open(){t.classList.add('is-open');d.classList.add('is-open');o.classList.add('is-open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}function close(){t.classList.remove('is-open');d.classList.remove('is-open');o.classList.remove('is-open');t.setAttribute('aria-expanded','false');document.body.style.overflow='';}t.addEventListener('click',()=>t.classList.contains('is-open')?close():open());o.addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});})();
+(function(){const btn=document.getElementById('waToggle'),panel=document.getElementById('waPanel');btn.addEventListener('click',()=>{const o=panel.classList.toggle('is-open');btn.setAttribute('aria-expanded',o);panel.setAttribute('aria-hidden',!o);});document.addEventListener('click',e=>{if(!e.target.closest('.wa-float')){panel.classList.remove('is-open');btn.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});})();
+
+/* Filtros + Buscador */
+(function(){
+  const cards   = document.querySelectorAll('.blog-card');
+  const filters = document.querySelectorAll('.filter-btn');
+  const search  = document.getElementById('blogSearch');
+  const empty   = document.getElementById('blogEmpty');
+  let activeFilter = 'todos';
+
+  function update() {
+    const term = search.value.toLowerCase().trim();
+    let visible = 0;
+
+    cards.forEach(card => {
+      const cat   = card.getAttribute('data-category');
+      const title = card.getAttribute('data-title');
+      const matchFilter = activeFilter === 'todos' || cat === activeFilter;
+      const matchSearch = !term || title.includes(term) || cat.toLowerCase().includes(term);
+
+      if (matchFilter && matchSearch) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    empty.classList.toggle('is-visible', visible === 0);
+  }
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      activeFilter = btn.getAttribute('data-filter');
+      update();
+    });
+  });
+
+  search.addEventListener('input', update);
+})();
+
+/* Reveal */
+(function(){const els=document.querySelectorAll('.reveal');const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target);}});},{threshold:0.08});els.forEach(el=>obs.observe(el));})();
+</script>
+</body>
+</html>
